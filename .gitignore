@@ -289,6 +289,10 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
+# Generated files
+src/AnimA.h
+src/AnimU.h
+
 # VB6 sample projects
 *.exp
 *.lib
