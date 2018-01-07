@@ -1,0 +1,153 @@
+Version 2.7.1 - 29/01/2016
+
+- FIX: The control could crash during OLE drag'n'drop.
+- FIX: The control could crash the other process during OLE drag'n'drop, especially when IOLEDataObject::SetDropDescription() had been called.
+
+
+
+Version 2.7.0 - 19/01/2016
+
+- Added the IAnimation::FinishOLEDragDrop method. It should not be used if not really needed. It can be used to hide the drag image if execution of the OLEDragDrop event takes a long time or if a message is displayed from within this event.
+- Initial support for Windows 10.
+
+
+
+Version 2.6.1 - 29/05/2014
+
+- Fixed a potential crash (regression).
+
+
+
+Version 2.6.0 - 14/02/2014
+
+- Added the XClick and XDblClick events for support of the extended mouse buttons.
+- Extended the Mouse* events to support the extended mouse buttons.
+- Slightly reduced GDI resource usage.
+- Initial support for Windows 8.1.
+
+
+
+Version 2.5.2 - 28/03/2013
+
+- FIX: The ResizedControlWindow event was not fired when it should have been fired.
+
+
+
+Version 2.5.1 - 02/09/2012
+
+- FIX: Clicking the control no longer raises the Validate event of the currently focused control.
+- Initial support for Windows 8.
+
+
+
+Version 2.5.0 - 11/03/2012
+
+- Rewrote the drawing code again, because the previous version still had drawing issues.
+- Reimplemented the subclassing code of the VB6 samples to make it more robust.
+
+
+
+Version 2.4.0 - 11/01/2012
+
+- Rewrote the drawing code for the case that the client application uses version 6.x of comctl32.dll. This should fix drawing issues.
+- Fixed the VB6 samples.
+
+
+
+Version 2.3.1 - 20/05/2011
+
+- Fixed a bug that could make other, invisible windows visible again under rather complex circumstances. I'm not sure this could happen practically, but in theory it could happen and practically it did happen for the Frame control which had the same bug.
+- FIX: The ResizedControlWindow event was fired when actually nothing had changed.
+
+
+
+Version 2.3.0 - 07/01/2011
+
+- Switched to Visual C++ 2010 and dropped support for Windows 2000.
+
+
+
+Version 2.2.2 - 10/07/2010
+
+- FIX: IOLEDataObject::SetDropDescription could cause crashes in other programs.
+
+
+
+Version 2.2.1 - 01/01/2010
+
+- Improved support for Aero drag images.
+- Improved performance.
+- FIX: The 'shift' parameter that many events have, often missed the ALT key.
+- Deploy (stripped) symbols with the binaries to make debugging easier. This are the pdb files in case you wonder.
+
+
+
+Version 2.2.0 - 25/07/2009
+
+- Initial support for Windows 7.
+- Extended the DropDescriptionIconConstants enumeration by 'ddiUseDefault'.
+- FIX: Drop descriptions didn't work as expected if the drag source was a 64 bit app.
+- Massively reduced the usage of GDI handles.
+- Improved performance.
+- Made some internal changes that will make it easier for me to keep binary compatibility in future.
+
+
+
+Version 2.1.1 - 29/10/2008
+
+- FIX: The events _IAnimationEvents::MouseEnter and _IAnimationEvents::MouseHover were raised only once.
+- FIX: Ignore calls to IOLEDataObject::SetDropDescription() if the drag image is in classic style.
+- Fixed some GDI handle leaks.
+- Fixed some drawing glitches.
+- Slightly changed handling of the situation where the user presses a mouse button, drags the mouse out of the control's client area and releases the button.
+- Removed the data-binding stuff (it was probably broken anyway).
+- Switched to Visual C++ 2008 and dropped support for Windows 9x, Me and NT 4.0.
+- Improved the documentation.
+
+
+
+Version 2.1.0 - 04/12/2007
+
+- Added the IOLEDataObject::GetDropDescription() method.
+- Added the IOLEDataObject::SetDropDescription() method.
+- FIX: Changes were not applied implicitly when jumping between multiple instances of the control with the property pages opened.
+- Improved the documentation.
+
+
+
+Version 2.0.4 - 27/02/2007
+
+- Decreased the binaries' size.
+- Improved the documentation.
+- Ported the WTL samples to WTL 8.0.
+- Made the samples DPI aware.
+- Linked the new bug tracking system.
+
+
+
+Version 2.0.3 - 04/10/2006
+
+- Added the IAnimation::IsPlaying property.
+- Improved setup.
+
+
+
+Version 2.0.2 - 07/09/2006
+
+- FIX: The "MouseIcon" property didn't work as expected.
+- FIX: The "Visible" property didn't work as expected.
+- Improved setup.
+
+
+
+Version 2.0.1 - 11/06/2006
+
+- FIX: Moving the control without resizing it could lead to a control width or height of 0.
+- FIX: Some degenerated GIF images were not handled correctly.
+- FIX: The "Pictures" property page was missing.
+
+
+
+Version 2.0.0 - 29/05/2006
+
+- First public release.

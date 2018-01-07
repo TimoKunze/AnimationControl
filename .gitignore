@@ -23,6 +23,8 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+[Dd]ebug - */
+[Rr]elease - */
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -292,3 +294,7 @@ __pycache__/
 *.lib
 *.oca
 *.vbw
+
+# Doxygen output
+help/**/[Dd]oxygen/**/html/
+help/**/[Dd]oxygen/**/chm/
