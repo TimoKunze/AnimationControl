@@ -1,4 +1,7 @@
 <p align=center>
+  <a href="https://github.com/TimoKunze/AnimationControl/releases/tag/2.7.2">
+    <img alt="Release 2.7.2 Release" src="https://img.shields.io/badge/release-2.7.2-0688CB.svg">
+  </a>
   <a href="https://github.com/TimoKunze/AnimationControl/releases">
     <img alt="Download AnimationControl" src="https://img.shields.io/badge/download-latest-0688CB.svg">
   </a>

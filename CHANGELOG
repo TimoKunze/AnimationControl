@@ -1,3 +1,9 @@
+Version 2.7.2 - 07/01/2018
+
+- Project published on GitHub.
+
+
+
 Version 2.7.1 - 29/01/2016
 
 - FIX: The control could crash during OLE drag'n'drop.
