@@ -5,7 +5,7 @@ The following is a set of guidelines for contributing to the AnimationControl pr
 #### Table Of Contents
 [Styleguides](#styleguides)
   * [Git Commit Messages](#git-commit-messages)
-  * [C++ Styleguide](#c++-styleguide)
+  * [C++ Styleguide](#c-styleguide)
 
 ## Styleguides
 
