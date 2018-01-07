@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'AnimU'
+		'AnimU.OCX'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

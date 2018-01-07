@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{D64390A6-9D7B-4A32-B02D-90EE77807F1A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Events", "General\Events\Events.vcxproj", "{0F450A50-C160-4B36-988B-BD92024FA223}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TransparentBackground", "General\Transparent Background\TransparentBackground.vcxproj", "{F050FABF-724F-4415-9C55-9A722DD78DB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F450A50-C160-4B36-988B-BD92024FA223}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0F450A50-C160-4B36-988B-BD92024FA223}.Debug|Win32.Build.0 = Debug|Win32
+		{0F450A50-C160-4B36-988B-BD92024FA223}.Release|Win32.ActiveCfg = Release|Win32
+		{0F450A50-C160-4B36-988B-BD92024FA223}.Release|Win32.Build.0 = Release|Win32
+		{F050FABF-724F-4415-9C55-9A722DD78DB3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F050FABF-724F-4415-9C55-9A722DD78DB3}.Debug|Win32.Build.0 = Debug|Win32
+		{F050FABF-724F-4415-9C55-9A722DD78DB3}.Release|Win32.ActiveCfg = Release|Win32
+		{F050FABF-724F-4415-9C55-9A722DD78DB3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F450A50-C160-4B36-988B-BD92024FA223} = {D64390A6-9D7B-4A32-B02D-90EE77807F1A}
+		{F050FABF-724F-4415-9C55-9A722DD78DB3} = {D64390A6-9D7B-4A32-B02D-90EE77807F1A}
+	EndGlobalSection
+EndGlobal

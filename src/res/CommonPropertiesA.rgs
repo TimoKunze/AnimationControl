@@ -1,0 +1,25 @@
+HKCR
+{
+	AnimA.CommonProperties.1 = s 'TimoSoft CommonProperties Class 2.7 (ANSI)'
+	{
+		CLSID = s '{20215D15-4F7B-4d51-A2F6-C77F048BB09F}'
+	}
+	AnimA.CommonProperties = s 'TimoSoft CommonProperties Class (ANSI)'
+	{
+		CLSID = s '{20215D15-4F7B-4d51-A2F6-C77F048BB09F}'
+		CurVer = s 'AnimA.CommonProperties.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {20215D15-4F7B-4d51-A2F6-C77F048BB09F} = s 'TimoSoft CommonProperties Class (ANSI)'
+		{
+			ProgID = s 'AnimA.CommonProperties.1'
+			VersionIndependentProgID = s 'AnimA.CommonProperties'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{CBA795C4-6941-484d-AE26-6A7EE9170E34}'
+		}
+	}
+}

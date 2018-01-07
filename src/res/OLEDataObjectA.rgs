@@ -1,0 +1,25 @@
+HKCR
+{
+	AnimA.OLEDataObject.1 = s 'TimoSoft OLEDataObject Class 2.7 (ANSI)'
+	{
+		CLSID = s '{CAD56F18-2C79-458e-A0E1-34CFFB435699}'
+	}
+	AnimA.OLEDataObject = s 'TimoSoft OLEDataObject Class (ANSI)'
+	{
+		CLSID = s '{CAD56F18-2C79-458e-A0E1-34CFFB435699}'
+		CurVer = s 'AnimA.OLEDataObject.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CAD56F18-2C79-458e-A0E1-34CFFB435699} = s 'TimoSoft OLEDataObject Class (ANSI)'
+		{
+			ProgID = s 'AnimA.OLEDataObject.1'
+			VersionIndependentProgID = s 'AnimA.OLEDataObject'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{CBA795C4-6941-484d-AE26-6A7EE9170E34}'
+		}
+	}
+}

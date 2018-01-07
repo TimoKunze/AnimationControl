@@ -1,0 +1,42 @@
+HKCR
+{
+	AnimU.Animation.1 = s 'TimoSoft Animation Control 2.7 (Unicode)'
+	{
+		CLSID = s '{C85E66A9-EDBB-4785-B1FA-2C86AB6D7680}'
+		'Insertable'
+	}
+	AnimU.Animation = s 'TimoSoft Animation Control 2.7 (Unicode)'
+	{
+		CLSID = s '{C85E66A9-EDBB-4785-B1FA-2C86AB6D7680}'
+		CurVer = s 'AnimU.Animation.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C85E66A9-EDBB-4785-B1FA-2C86AB6D7680} = s 'TimoSoft Animation Control 2.7 (Unicode)'
+		{
+			ProgID = s 'AnimU.Animation.1'
+			VersionIndependentProgID = s 'AnimU.Animation'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove 'Implemented Categories'
+			{
+				'{40FC6ED4-2438-11CF-A3DB-080036F12502}'
+				'{0DE86A57-2BAA-11CF-A229-00AA003D7352}'
+				'{0DE86A53-2BAA-11CF-A229-00AA003D7352}'
+			}
+			val AppID = s '%APPID%'
+			ForceRemove 'Control'
+			ForceRemove 'Insertable'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 1'
+			'MiscStatus' = s '0'
+			{
+				'1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{49D3E26C-8EA8-4137-86CE-D83F41BD4741}'
+			'Version' = s '2.7'
+		}
+	}
+}

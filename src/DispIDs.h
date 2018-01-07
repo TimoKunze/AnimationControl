@@ -1,0 +1,83 @@
+// DispIDs.h: Defines a DISPID for each COM property and method we're providing.
+
+// IAnimation
+// properties
+#define DISPID_ANIM_ANIMATIONBACKSTYLE						1
+#define DISPID_ANIM_APPEARANCE										2
+#define DISPID_ANIM_AUTOSTARTREPLAY								3
+#define DISPID_ANIM_BACKCOLOR											4
+#define DISPID_ANIM_BORDERSTYLE										5
+#define DISPID_ANIM_CENTERANIMATION								6
+#define DISPID_ANIM_DISABLEDEVENTS								7
+#define DISPID_ANIM_DONTREDRAW										8
+#define DISPID_ANIM_ENABLED												DISPID_ENABLED
+#define DISPID_ANIM_HOVERTIME											9
+#define DISPID_ANIM_HWND													10
+#define DISPID_ANIM_MOUSEICON											11
+#define DISPID_ANIM_MOUSEPOINTER									12
+#define DISPID_ANIM_REGISTERFOROLEDRAGDROP				13
+#define DISPID_ANIM_SUPPORTOLEDRAGIMAGES					14
+#define DISPID_ANIM_VERSION												15
+#define DISPID_ANIM_ISPLAYING											24
+// fingerprint
+#define DISPID_ANIM_APPID													500
+#define DISPID_ANIM_APPNAME												501
+#define DISPID_ANIM_APPSHORTNAME									502
+#define DISPID_ANIM_BUILD													503
+#define DISPID_ANIM_CHARSET												504
+#define DISPID_ANIM_ISRELEASE											505
+#define DISPID_ANIM_PROGRAMMER										506
+#define DISPID_ANIM_TESTER												507
+// methods
+#define DISPID_ANIM_ABOUT													DISPID_ABOUTBOX
+#define DISPID_ANIM_CLOSEANIMATION								16
+#define DISPID_ANIM_DISPLAYFRAME									17
+#define DISPID_ANIM_LOADSETTINGSFROMFILE					18
+#define DISPID_ANIM_OPENANIMATIONFROMFILE					19
+#define DISPID_ANIM_OPENANIMATIONFROMRESOURCE			20
+#define DISPID_ANIM_REFRESH												DISPID_REFRESH
+#define DISPID_ANIM_SAVESETTINGSTOFILE						21
+#define DISPID_ANIM_STARTREPLAY										22
+#define DISPID_ANIM_STOPREPLAY										23
+#define DISPID_ANIM_FINISHOLEDRAGDROP							25
+
+
+// _IAnimationEvents
+// methods
+#define DISPID_ANIME_CLICK												DISPID_VALUE
+#define DISPID_ANIME_CONTEXTMENU									1
+#define DISPID_ANIME_DBLCLICK											2
+#define DISPID_ANIME_DESTROYEDCONTROLWINDOW				3
+#define DISPID_ANIME_MCLICK												4
+#define DISPID_ANIME_MDBLCLICK										5
+#define DISPID_ANIME_MOUSEDOWN										6
+#define DISPID_ANIME_MOUSEENTER										7
+#define DISPID_ANIME_MOUSEHOVER										8
+#define DISPID_ANIME_MOUSELEAVE										9
+#define DISPID_ANIME_MOUSEMOVE										10
+#define DISPID_ANIME_MOUSEUP											11
+#define DISPID_ANIME_OLEDRAGDROP									12
+#define DISPID_ANIME_OLEDRAGENTER									13
+#define DISPID_ANIME_OLEDRAGLEAVE									14
+#define DISPID_ANIME_OLEDRAGMOUSEMOVE							15
+#define DISPID_ANIME_RCLICK												16
+#define DISPID_ANIME_RDBLCLICK										17
+#define DISPID_ANIME_RECREATEDCONTROLWINDOW				18
+#define DISPID_ANIME_RESIZEDCONTROLWINDOW					19
+#define DISPID_ANIME_STARTEDREPLAY								20
+#define DISPID_ANIME_STOPPEDREPLAY								21
+//#define DISPID_ANIME_MOUSEWHEEL										22
+#define DISPID_ANIME_XCLICK												23
+#define DISPID_ANIME_XDBLCLICK										24
+
+
+// IOLEDataObject
+// properties
+// methods
+#define DISPID_ODO_CLEAR													1
+#define DISPID_ODO_GETCANONICALFORMAT							2
+#define DISPID_ODO_GETDATA												3
+#define DISPID_ODO_GETFORMAT											4
+#define DISPID_ODO_SETDATA												5
+#define DISPID_ODO_GETDROPDESCRIPTION							6
+#define DISPID_ODO_SETDROPDESCRIPTION							7

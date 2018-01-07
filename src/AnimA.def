@@ -1,0 +1,9 @@
+; AnimA.def: Declares the module parameters. (ANSI version)
+
+LIBRARY      "AnimA.ocx"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

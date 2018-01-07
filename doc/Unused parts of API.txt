@@ -1,0 +1,7 @@
+The following parts of the SysAnimate32 API (Windows 10) are not used:
+
+Control styles:
+---------------
+- ACS_TIMER (https://msdn.microsoft.com/en-us/library/ms673602.aspx)
+	-> not supported by comctl32.dll 6.0 or newer
+	-> benefit of support for this style would be little
