@@ -2969,26 +2969,27 @@ protected:
 
 			/// \brief <em>Decodes a LZW compressed input stream</em>
 			///
-			/// \param[in] pInputStream The LZW compressed input stream to decode.
-			/// \param[in,out] pOutput The output buffer for the decoded pixels.
-			/// \param[in] outputSize The size (in bytes) of the output buffer specified by \c pOutput.
-			/// \param[in] lineWidth The width (in pixels) of the image to decode.
-			/// \param[in] numberOfRows The height (in pixels) of the image to decode.
-			/// \param[in] interlaced If \c TRUE, the image to decode is stored in interlaced format, i. e.
+			/// \param[in] pInputStrm The LZW compressed input stream to decode.
+			/// \param[in,out] pOutputBuf The output buffer for the decoded pixels.
+			/// \param[in] outputBufSize The size (in bytes) of the output buffer specified by
+			///            \c pOutputBuf.
+			/// \param[in] lineWdth The width (in pixels) of the image to decode.
+			/// \param[in] rowCount The height (in pixels) of the image to decode.
+			/// \param[in] isInterlaced If \c TRUE, the image to decode is stored in interlaced format, i. e.
 			///            its pixel rows are not stored continuously.
 			///
 			/// \return \c TRUE, if the stream was decoded successfully; otherwise \c FALSE.
 			///
 			/// \sa OutputLine
-			BOOL Decode(LPSTREAM pInputStream, LPBYTE pOutput, LONGLONG outputSize, SHORT lineWidth, SHORT numberOfRows, BOOL interlaced)
+			BOOL Decode(LPSTREAM pInputStrm, LPBYTE pOutputBuf, LONGLONG outputBufSize, SHORT lineWdth, SHORT rowCount, BOOL isInterlaced)
 			{
-				this->pInputStream = pInputStream;
-				this->pOutput = pOutput;
-				this->outputSize = outputSize;
+				this->pInputStream = pInputStrm;
+				this->pOutput = pOutputBuf;
+				this->outputSize = outputBufSize;
 				this->rowToOutputNext = 0;
-				this->lineWidth = lineWidth;
-				this->numberOfRows = numberOfRows;
-				this->interlaced = interlaced;
+				this->lineWidth = lineWdth;
+				this->numberOfRows = rowCount;
+				this->interlaced = isInterlaced;
 
 				register SHORT code;
 				register SHORT fc = 0;
@@ -3012,7 +3013,7 @@ protected:
 				bitsLeftInCurrentByte = 0;
 				bytesLeftInBlock = 0;
 
-				LPBYTE pDecodedLine = static_cast<LPBYTE>(HeapAlloc(GetProcessHeap(), 0, lineWidth * sizeof(BYTE)));
+				LPBYTE pDecodedLine = static_cast<LPBYTE>(HeapAlloc(GetProcessHeap(), 0, this->lineWidth * sizeof(BYTE)));
 				if(!pDecodedLine) {
 					return FALSE;
 				}
@@ -3039,7 +3040,7 @@ protected:
 
 				register LPBYTE stackPointer = pOutputStack;
 				register LPBYTE outputBufferPointer = pOutputBuffer;
-				register SHORT remainingOutputBufferSize = lineWidth;
+				register SHORT remainingOutputBufferSize = this->lineWidth;
 
 				/* This is the main loop. For each code we get we pass through the linked list of prefix codes,
 				   pushing the corresponding "character" for each code onto the stack. When the list reaches a
@@ -3048,7 +3049,7 @@ protected:
 				   thing ends when we get an ending code. */
 				SHORT foundCode;
 				SHORT doneRows = 0;
-				while((doneRows < numberOfRows) && ((foundCode = GetNextCode()) != endCode)) {
+				while((doneRows < this->numberOfRows) && ((foundCode = GetNextCode()) != endCode)) {
 					// if we had an error, return without completing the decode
 					if(foundCode < 0) {
 						HeapFree(GetProcessHeap(), 0, pDecodedLine);
@@ -3083,7 +3084,7 @@ protected:
 						   exactly one pixel from the end of the line, we have to output the buffer. */
 						*outputBufferPointer++ = static_cast<BYTE>(foundCode & 0xFF);
 						if(--remainingOutputBufferSize == 0) {
-							if(OutputLine(pOutputBuffer, lineWidth)) {
+							if(OutputLine(pOutputBuffer, this->lineWidth)) {
 								++doneRows;
 							} else {
 								HeapFree(GetProcessHeap(), 0, pDecodedLine);
@@ -3094,7 +3095,7 @@ protected:
 							}
 
 							outputBufferPointer = pOutputBuffer;
-							remainingOutputBufferSize = lineWidth;
+							remainingOutputBufferSize = this->lineWidth;
 						}
 					} else {
 						/* In this case, it's not a clear code or an ending code, so it must be a code code. So we can
@@ -3137,7 +3138,7 @@ protected:
 						while(stackPointer > pOutputStack) {
 							*outputBufferPointer++ = *(--stackPointer);
 							if(--remainingOutputBufferSize == 0) {
-								if(OutputLine(pOutputBuffer, lineWidth)) {
+								if(OutputLine(pOutputBuffer, this->lineWidth)) {
 									++doneRows;
 								} else {
 									HeapFree(GetProcessHeap(), 0, pDecodedLine);
@@ -3148,15 +3149,15 @@ protected:
 								}
 
 								outputBufferPointer = pOutputBuffer;
-								remainingOutputBufferSize = lineWidth;
+								remainingOutputBufferSize = this->lineWidth;
 							}
 						}
 					}
 				}
 
 				BOOL success = TRUE;
-				if(remainingOutputBufferSize != lineWidth) {
-					success = OutputLine(pOutputBuffer, lineWidth - remainingOutputBufferSize);
+				if(remainingOutputBufferSize != this->lineWidth) {
+					success = OutputLine(pOutputBuffer, this->lineWidth - remainingOutputBufferSize);
 				}
 
 				HeapFree(GetProcessHeap(), 0, pDecodedLine);
@@ -3260,20 +3261,20 @@ protected:
 					pOutput[outputOffset + i] = pBuffer[i];
 				}
 
-				if(interlaced) {
+				if(this->interlaced) {
 					if((rowToOutputNext & 7) == 0) {
 						rowToOutputNext += 8;
-						if(rowToOutputNext >= numberOfRows) {
+						if(rowToOutputNext >= this->numberOfRows) {
 							rowToOutputNext = 4;
 						}
 					} else if((rowToOutputNext & 3) == 0) {
 						rowToOutputNext += 8;
-						if(rowToOutputNext >= numberOfRows) {
+						if(rowToOutputNext >= this->numberOfRows) {
 							rowToOutputNext = 2;
 						}
 					} else if((rowToOutputNext & 1) == 0) {
 						rowToOutputNext += 4;
-						if(rowToOutputNext >= numberOfRows) {
+						if(rowToOutputNext >= this->numberOfRows) {
 							rowToOutputNext = 1;
 						}
 					} else {

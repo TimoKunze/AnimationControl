@@ -2373,7 +2373,7 @@ LRESULT Animation::OnXButtonUp(UINT /*message*/, WPARAM wParam, LPARAM lParam, B
 LRESULT Animation::OnReflectedCtlColorStatic(UINT /*message*/, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/)
 {
 	if(flags.usingThemes) {
-		RECT clientRectangle;
+		CRect clientRectangle;
 		::GetClientRect(reinterpret_cast<HWND>(lParam), &clientRectangle);
 		if(IsComctl32Version610OrNewer()) {
 			FillRect(reinterpret_cast<HDC>(wParam), &clientRectangle, GetSysColorBrush(COLOR_3DFACE));
@@ -2384,8 +2384,6 @@ LRESULT Animation::OnReflectedCtlColorStatic(UINT /*message*/, WPARAM wParam, LP
 			 *       a black background, even if the control is located on a tab strip.
 			 *       Drawing the background in WM_ERASEBKGND doesn't seem to help, too.
 			 */
-			CRect clientRectangle;
-			::GetClientRect(reinterpret_cast<HWND>(lParam), &clientRectangle);
 
 			CDC memoryDC;
 			memoryDC.CreateCompatibleDC(reinterpret_cast<HDC>(wParam));
