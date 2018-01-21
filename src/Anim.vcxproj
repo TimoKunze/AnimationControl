@@ -130,7 +130,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug - ANSI|Win32'">
     <PreBuildEvent>
-      <Command>"$(ProjectDir)\..\SVNRevisionReplacer.exe"</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;_ANSI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -175,7 +176,7 @@
       <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <EnablePREfast>false</EnablePREfast>
-      <AdditionalIncludeDirectories>D:\Projekte\Libraries\WTL\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projects\Libraries\WTL\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;_ANSI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -226,7 +227,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - ANSI|Win32'">
     <PreBuildEvent>
-      <Command>"$(ProjectDir)\..\SVNRevisionReplacer.exe"</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;_ANSI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -266,7 +268,7 @@
       <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <EnablePREfast>false</EnablePREfast>
-      <AdditionalIncludeDirectories>D:\Projekte\Libraries\WTL\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projects\Libraries\WTL\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_ANSI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -314,7 +316,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug - Unicode|Win32'">
     <PreBuildEvent>
-      <Command>"$(ProjectDir)\..\SVNRevisionReplacer.exe"</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -360,7 +363,7 @@
       <TreatWarningAsError>false</TreatWarningAsError>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <EnablePREfast>false</EnablePREfast>
-      <AdditionalIncludeDirectories>D:\Projekte\Libraries\WTL\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projects\Libraries\WTL\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -412,7 +415,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - Unicode|Win32'">
     <PreBuildEvent>
-      <Command>"$(ProjectDir)\..\SVNRevisionReplacer.exe"</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -452,7 +456,7 @@
       <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <EnablePREfast>false</EnablePREfast>
-      <AdditionalIncludeDirectories>D:\Projekte\Libraries\WTL\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projects\Libraries\WTL\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -505,7 +509,7 @@
     <ClCompile>
       <EnablePREfast>false</EnablePREfast>
       <WarningLevel>Level4</WarningLevel>
-      <AdditionalIncludeDirectories>D:\Projekte\Libraries\WTL\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projects\Libraries\WTL\Include</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -553,15 +557,9 @@
     <None Include="res\About.jpg" />
     <None Include="res\AnimA.rgs" />
     <None Include="res\AnimationA.bmp" />
-    <None Include="res\AnimationA_in.rgs" />
     <None Include="res\AnimationU.bmp" />
-    <None Include="res\AnimationU_in.rgs" />
     <None Include="res\AnimU.rgs" />
     <None Include="res\back IDE.ico" />
-    <None Include="res\CommonPropertiesA_in.rgs" />
-    <None Include="res\CommonPropertiesU_in.rgs" />
-    <None Include="res\OLEDataObjectA_in.rgs" />
-    <None Include="res\OLEDataObjectU_in.rgs" />
     <None Include="res\Paypal.jpg" />
     <None Include="res\ToolBar disabled.bmp" />
     <None Include="res\ToolBar enabled.bmp" />
@@ -571,26 +569,9 @@
     <None Include="res\CommonPropertiesU.rgs" />
     <None Include="res\OLEDataObjectA.rgs" />
     <None Include="res\OLEDataObjectU.rgs" />
-    <None Include="..\doc\Changelog.txt" />
-    <None Include="..\doc\License.rtf" />
-    <None Include="..\doc\License.txt" />
-    <None Include="..\doc\Style.txt" />
-    <None Include="..\doc\TODO.txt" />
     <None Include="..\doc\Unused parts of API.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="AnimA_in.idl">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - ANSI|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - Unicode|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - ANSI|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - Unicode|Win32'">true</ExcludedFromBuild>
-    </Midl>
-    <Midl Include="AnimU_in.idl">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - ANSI|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - Unicode|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - ANSI|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - Unicode|Win32'">true</ExcludedFromBuild>
-    </Midl>
     <Midl Include="AnimA.idl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug - Unicode|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - Unicode|Win32'">true</ExcludedFromBuild>
@@ -619,7 +600,6 @@
     <ClInclude Include="TargetOLEDataObject.h" />
     <ClInclude Include="AnimA.h" />
     <ClInclude Include="AnimU.h" />
-    <ClInclude Include="res\resource_in.h" />
     <ClInclude Include="res\resource.h" />
   </ItemGroup>
   <ItemGroup>
