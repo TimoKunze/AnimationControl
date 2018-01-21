@@ -32,7 +32,7 @@ LRESULT CMainDlg::OnCtlColorStatic(UINT /*uMsg*/, WPARAM wParam, LPARAM lParam, 
 			animationBackgroundBrush.DeleteObject();
 		}
 
-		WTL::CRect windowRectangle;
+		CRect windowRectangle;
 		::GetWindowRect(reinterpret_cast<HWND>(lParam), &windowRectangle);
 		ScreenToClient(&windowRectangle);
 		WTL::CBitmap animationBackgroundTexture;

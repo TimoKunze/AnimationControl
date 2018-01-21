@@ -410,8 +410,8 @@ HRESULT Animation::OnDraw(ATL_DRAWINFO& drawInfo)
 			if(icon.GetIconInfo(&iconData)) {
 				BITMAP bitmapData = {0};
 				if(GetObject((iconData.hbmColor != NULL ? iconData.hbmColor : iconData.hbmMask), sizeof(bitmapData), &bitmapData)) {
-					WTL::CRect boundingRectangle = reinterpret_cast<LPCRECT>(drawInfo.prcBounds);
-					WTL::CPoint pt = boundingRectangle.CenterPoint();
+					CRect boundingRectangle = reinterpret_cast<LPCRECT>(drawInfo.prcBounds);
+					CPoint pt = boundingRectangle.CenterPoint();
 					pt.Offset(-bitmapData.bmWidth / 2, -bitmapData.bmHeight / 2);
 
 					HBRUSH hBrushToUseForBackground = NULL;
@@ -2148,7 +2148,7 @@ LRESULT Animation::OnSetCursor(UINT /*message*/, WPARAM /*wParam*/, LPARAM /*lPa
 	BOOL setCursor = FALSE;
 
 	// Are we really over the control?
-	WTL::CRect clientArea;
+	CRect clientArea;
 	GetClientRect(&clientArea);
 	ClientToScreen(&clientArea);
 	DWORD position = GetMessagePos();
@@ -2264,7 +2264,7 @@ LRESULT Animation::OnTimer(UINT /*message*/, WPARAM wParam, LPARAM /*lParam*/, B
 				if(gifData.currentFrame == gifData.startFrame) {
 					InitializeScreenBuffersWithSpecifiedGIFFrame(gifData.startFrame);
 				} else {
-					WTL::CPoint position(0, 0);
+					CPoint position(0, 0);
 					DWORD style = GetStyle();
 					if(style & ACS_CENTER) {
 						position.x = (gifData.currentlyBufferedRectangle.Width() - gifData.logicalScreenRectangle.Width()) / 2;
@@ -2298,7 +2298,7 @@ LRESULT Animation::OnWindowPosChanged(UINT /*message*/, WPARAM /*wParam*/, LPARA
 {
 	LPWINDOWPOS pDetails = reinterpret_cast<LPWINDOWPOS>(lParam);
 
-	WTL::CRect windowRectangle = m_rcPos;
+	CRect windowRectangle = m_rcPos;
 	/* Ugly hack: We depend on this message being sent without SWP_NOMOVE at least once, but this requirement
 	              not always will be fulfilled. Fortunately pDetails seems to contain correct x and y values
 	              even if SWP_NOMOVE is set.
@@ -2384,7 +2384,7 @@ LRESULT Animation::OnReflectedCtlColorStatic(UINT /*message*/, WPARAM wParam, LP
 			 *       a black background, even if the control is located on a tab strip.
 			 *       Drawing the background in WM_ERASEBKGND doesn't seem to help, too.
 			 */
-			WTL::CRect clientRectangle;
+			CRect clientRectangle;
 			::GetClientRect(reinterpret_cast<HWND>(lParam), &clientRectangle);
 
 			CDC memoryDC;
@@ -3402,7 +3402,7 @@ void Animation::InitializeScreenBuffersWithSpecifiedGIFFrame(int frameToInitiali
 	// the message handler might have drawn into the dc, so we need to copy the content
 	gifData.screenWithBackgroundOnly.dc.BitBlt(0, 0, gifData.currentlyBufferedRectangle.Width(), gifData.currentlyBufferedRectangle.Height(), gifData.screenWithoutCurrentFrame.dc, 0, 0, SRCCOPY);
 
-	WTL::CPoint position(0, 0);
+	CPoint position(0, 0);
 	DWORD style = GetStyle();
 	if(style & ACS_CENTER) {
 		position.x = (gifData.currentlyBufferedRectangle.Width() - gifData.logicalScreenRectangle.Width()) / 2;
@@ -3421,7 +3421,7 @@ void Animation::InitializeScreenBuffersWithSpecifiedGIFFrame(int frameToInitiali
 	gifData.currentFrame = frameToInitializeWith;
 }
 
-void Animation::RenderGIFFrame(int frameToRender, CDC& targetDC, WTL::CPoint& position)
+void Animation::RenderGIFFrame(int frameToRender, CDC& targetDC, CPoint& position)
 {
 	ATLASSERT(frameToRender >= 0);
 	#ifdef USE_STL
@@ -3460,7 +3460,7 @@ void Animation::RenderGIFFrame(int frameToRender, CDC& targetDC, WTL::CPoint& po
 	}
 }
 
-void Animation::RenderGIFFrameBackground(int frameToRenderBackgroundFor, CDC& targetDC, WTL::CPoint& position, BOOL drawTransparent)
+void Animation::RenderGIFFrameBackground(int frameToRenderBackgroundFor, CDC& targetDC, CPoint& position, BOOL drawTransparent)
 {
 	ATLASSERT(frameToRenderBackgroundFor >= 0);
 	#ifdef USE_STL
@@ -3478,7 +3478,7 @@ void Animation::RenderGIFFrameBackground(int frameToRenderBackgroundFor, CDC& ta
 			WTL::CBrush hBackBrush;
 			Color backColor = gifData.pGlobalColorTable[gifData.backColorIndex];
 			hBackBrush.CreateSolidBrush(RGB(backColor.r, backColor.g, backColor.b));
-			WTL::CRect rc(&gifData.logicalScreenRectangle);
+			CRect rc(&gifData.logicalScreenRectangle);
 			rc.OffsetRect(position);
 			targetDC.FillRect(&rc, hBackBrush);
 		}
@@ -3513,7 +3513,7 @@ void Animation::RenderGIFFrameBackground(int frameToRenderBackgroundFor, CDC& ta
 					WTL::CBrush hBackBrush;
 					Color backColor = gifData.pGlobalColorTable[gifData.backColorIndex];
 					hBackBrush.CreateSolidBrush(RGB(backColor.r, backColor.g, backColor.b));
-					WTL::CRect rc(&pPreviousFrame->boundingRectangle);
+					CRect rc(&pPreviousFrame->boundingRectangle);
 					rc.OffsetRect(position);
 					targetDC.FillRect(&rc, hBackBrush);
 				}
@@ -3534,7 +3534,7 @@ void Animation::RenderGIFFrameBackground(int frameToRenderBackgroundFor, CDC& ta
 						WTL::CBrush hBackBrush;
 						Color backColor = gifData.pGlobalColorTable[gifData.backColorIndex];
 						hBackBrush.CreateSolidBrush(RGB(backColor.r, backColor.g, backColor.b));
-						WTL::CRect rc(&pPreviousFrame->boundingRectangle);
+						CRect rc(&pPreviousFrame->boundingRectangle);
 						rc.OffsetRect(position);
 						targetDC.FillRect(&rc, hBackBrush);
 					}

@@ -2736,7 +2736,7 @@ protected:
 	/// \param[in] position The position (in pixels) at which to render the frame.
 	///
 	/// \sa RenderGIFFrameBackground, InitializeScreenBuffersWithSpecifiedGIFFrame
-	void RenderGIFFrame(int frameToRender, CDC& targetDC, WTL::CPoint& position);
+	void RenderGIFFrame(int frameToRender, CDC& targetDC, CPoint& position);
 	/// \brief <em>Renders the background of the specified frame to the specified device context at the specified position</em>
 	///
 	/// \param[in] frameToRenderBackgroundFor The frame for which to render the background.
@@ -2746,7 +2746,7 @@ protected:
 	///            otherwise the animation's background is used.
 	///
 	/// \sa RenderGIFFrame, InitializeScreenBuffersWithSpecifiedGIFFrame
-	void RenderGIFFrameBackground(int frameToRenderBackgroundFor, CDC& targetDC, WTL::CPoint& position, BOOL drawTransparent);
+	void RenderGIFFrameBackground(int frameToRenderBackgroundFor, CDC& targetDC, CPoint& position, BOOL drawTransparent);
 
 	/// \brief <em>Holds a 32 bit color value</em>
 	///
@@ -2773,7 +2773,7 @@ protected:
 		/// \brief <em>The frame's bounding rectangle relative to the upper-left corner of the GIF's logical screen</em>
 		///
 		/// \sa GIFData::logicalScreenRectangle
-		WTL::CRect boundingRectangle;
+		CRect boundingRectangle;
 		/// \brief <em>If \c TRUE, the frame has a real private color table</em>
 		///
 		/// \sa localColorTableSize, pLocalColorTable, GIFData::hasGlobalColorTable
@@ -3290,7 +3290,7 @@ protected:
 		/// \brief <em>The bounding rectangle of the GIF's logical screen</em>
 		///
 		/// \sa Frame::boundingRectangle
-		WTL::CRect logicalScreenRectangle;
+		CRect logicalScreenRectangle;
 		/// \brief <em>If \c TRUE, the GIF has a global color table for all its frames</em>
 		///
 		/// \sa globalColorTableSize, pGlobalColorTable, Frame::hasLocalColorTable
@@ -3430,7 +3430,7 @@ protected:
 		/// \brief <em>The bounding rectangle of the currently buffered area relative to the control's upper-left corner</em>
 		///
 		/// \sa screenWithCurrentFrame, screenWithBackgroundOnly, MemoryDC, OnWindowPosChanged
-		WTL::CRect currentlyBufferedRectangle;
+		CRect currentlyBufferedRectangle;
 
 		GIFData()
 		{
